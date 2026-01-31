@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
@@ -21,7 +21,7 @@ const Loan = () => {
   const [showAllDocuments, setShowAllDocuments] = useState(false);
 
   // Loan data with images - REPLACE WITH YOUR PROVIDED IMAGES
-  const loanData = {
+  const loanData = useMemo(() => ({
     'personal-loan': {
       title: 'Personal Loan',
       marathiTitle: 'सामान्य कर्ज',
@@ -623,7 +623,7 @@ const Loan = () => {
         { category: 'Studies Abroad', maxAmount: '₹50,00,000', tenure: '15 years' }
       ]
     }
-  };
+  }), [isMarathi]);
 
   // Common documents for all loans
   const commonDocuments = isMarathi ? [

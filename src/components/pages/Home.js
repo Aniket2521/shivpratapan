@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
-  FaPhone, FaEnvelope, FaChevronLeft, FaChevronRight, 
+  FaPhone, FaEnvelope, 
   FaCalculator, FaPiggyBank, FaHandHoldingUsd, FaChartLine,
-  FaBuilding, FaUsers, FaShieldAlt, FaMobileAlt,
-  FaClock, FaRupeeSign, FaPercent, FaCalendarAlt,
-  FaCamera, FaVideo, FaHeart, FaHandshake,
+  FaBuilding, FaUsers, FaShieldAlt,
+  FaRupeeSign, FaPercent, FaCalendarAlt,
+  FaCamera,
+  FaHandshake,
   FaHome, FaCar, FaGraduationCap, FaBriefcase,
-  FaArrowRight, FaPlayCircle, FaPlus, FaTimes,
+  FaArrowRight, FaPlus, FaTimes,
   FaStar, FaAward, FaUserCheck, FaLightbulb,
-  FaCreditCard, FaHandHoldingHeart, FaUniversity, FaComment,
+  FaCreditCard, FaHandHoldingHeart, FaUniversity,
   FaFilter,
   FaPiggyBank as FaPiggyBankSolid, FaUser, FaRing
 } from 'react-icons/fa';
@@ -215,7 +216,7 @@ const Home = () => {
       aboutYear2002: "वर्ष २००२ मध्ये",
       aboutParagraph1: "गलई व्यापाऱ्यांनी एकत्र येऊन माननीय प्रताप सेठ दादा सालुंखे यांना संस्था स्थापन करण्याचा कल्पना सादर केली. या वेळी सहकारी संस्थांची स्थिती खूप वाईट होती, अनेक संस्था दिवाळा झालेल्या होत्या आणि काही दिवाळ्याच्या वणवण्यावर होत्या. ठेवकरूंमध्ये अस्थिरतेचे वातावरण होते. अशा परिस्थितीत निर्णय घेणे खूप धोकादायक होते.",
       aboutVitthalSalunkhe: "माननीय श्री. विठ्ठल सालुंखे",
-      aboutParagraph2: "यांना बँकिंग क्षेत्राचे संपूर्ण ज्ञान होते, त्यांनी त्याचा अभ्यास करण्याची आणि आव्हानाला सामोरे जाण्याची निर्णय घेतला. दादांनी इतर संस्थांच्या चुका दुरुस्त करण्याची आणि कमी दरावर आणि सुरक्षित जामीनवर कर्ज प्रदान करण्याची निर्णय घेतली आणि २६ जून २००२ रोजी संस्थेची स्थापना झाली.",
+      aboutParagraph2: "यांना बँकिंग क्षेत्राचे संपूर्ण ज्ञान होते, त्यांनी त्याचा अभ्यास करण्याची आणि आव्हानाला सामोरे जाण्याची निर्णय घेतली. दादांनी इतर संस्थांच्या चुका दुरुस्त करण्याची आणि कमी दरावर आणि सुरक्षित जामीनवर कर्ज प्रदान करण्याची निर्णय घेतली आणि २६ जून २००२ रोजी संस्थेची स्थापना झाली.",
       aboutJuly11: "तात्काळ ११ जुलै २००२ रोजी",
       aboutParagraph3: "संस्थेचे उद्घाटन माननीय डॉक्टर पाटंगरावजी कदम, माननीय जयंतरावजी पाटील आणि माननीय हर्षवर्धनजी पाटील यांनी केले. या वेळी सर्व पक्षांच्या आजी आणि माजी आमदार या कार्यक्रमाला उपस्थित होते.",
       // Other hardcoded text
@@ -250,7 +251,7 @@ const Home = () => {
       subhmangalScheme: "सुभमंगल डिपॉजिट योजना",
       subhmangalDesc: "आठवणीत समारंभासाठी नियोजित बचत. कुटुंबाच्या स्वप्नांवर कोणतीही तडजोड नाही. आश्वासित परिपक्वता मूल्यासह सुरक्षित गुंतवणूक. भावनावर आधारित दीर्घकालीन बचत योजना.",
       subhmangalFeatures: ["लग्न नियोजन", "कुटुंब स्वप्ने", "आश्वासित परिपक्वता", "भावनात्मक बचत"],
-      subhmangalTagline: "मुलांच्या लग्न खर्चांसाठी डिझाइन केलेले",
+      subhmangalTagline: "Designed for children's wedding expenses",
       // Banking Services
       regularSavings: "नियमित बचत खाते",
       salaryAccount: "पगार खाते",
@@ -517,13 +518,13 @@ const Home = () => {
   };
 
   // Slider control functions
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-  };
+  }, []);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === 0 ? sliderImages.length - 1 : prev - 1));
-  };
+  }, []);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -598,7 +599,7 @@ const Home = () => {
   const API_KEY = "goldapi-gegk3219mkz7j2ae-io";
 
   // Fetch current gold price for India using same API as Calculator.js
-  const fetchCurrentGoldPrice = async () => {
+  const fetchCurrentGoldPrice = useCallback(async () => {
     try {
       setGoldPriceLoading(true);
       const res = await fetch("https://www.goldapi.io/api/XAU/INR", {
@@ -629,7 +630,7 @@ const Home = () => {
     } finally {
       setGoldPriceLoading(false);
     }
-  };
+  }, [API_KEY, t.errorFetchingPrice]);
 
   // Handle weight input change - trigger gold price fetch
   const handleWeightChange = (e) => {

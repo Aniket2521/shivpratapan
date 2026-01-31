@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaCrown, FaStar, FaShieldAlt,
   FaEnvelope, FaMapMarkerAlt,
-  FaMobileAlt, FaQrcode, FaExchangeAlt,
-  FaCreditCard, FaBell, FaLock, FaUserTie,
+  FaCreditCard, FaUserTie,
   FaHandHoldingUsd, FaChevronRight, FaHome,
-  FaArrowRight, FaCheckCircle, FaClock,
-  FaChartLine, FaHandshake, FaAward, FaBuilding,
-  FaRupeeSign, FaUsers, FaGlobe, FaHeadset, FaUniversity, FaInfoCircle
+  FaChartLine, FaHeadset, FaUniversity
 } from 'react-icons/fa';
-import { GiCash, GiReceiveMoney, GiPayMoney } from 'react-icons/gi';
 
 const Premiumsavingsacco = () => {
   const { language } = useLanguage();
-  const isMarathi = language === 'mr';
-  const [activeSection, setActiveSection] = useState('overview');
-  const [balance, setBalance] = useState(100000);
-  const [interestRate] = useState(6.50);
 
   // Translations
   const translations = {
@@ -139,124 +131,6 @@ const Premiumsavingsacco = () => {
 
   const t = translations[language];
 
-  // Calculate interest
-  const calculateInterest = (amount) => {
-    return (amount * interestRate) / 100;
-  };
-
-  // Premium Features
-  const premiumFeatures = [
-    {
-      marathi: 'पैसे काढणे',
-      english: 'Cash Withdrawal',
-      description: 'Priority cash withdrawal with dedicated counters',
-      icon: <GiReceiveMoney />,
-      color: 'from-amber-500 to-amber-700'
-    },
-    {
-      marathi: 'पैसे जमा करणे',
-      english: 'Cash Deposit',
-      description: 'Enhanced deposit limits and quick processing',
-      icon: <GiPayMoney />,
-      color: 'from-emerald-500 to-emerald-700'
-    },
-    {
-      marathi: 'NEFT / RTGS / IMPS',
-      english: 'Instant Transfers',
-      description: 'Higher transaction limits and free fund transfers',
-      icon: <FaExchangeAlt />,
-      color: 'from-blue-500 to-blue-700'
-    },
-    {
-      marathi: 'मोबाईल बँकिंग',
-      english: 'Free Mobile Banking',
-      description: 'Unlimited access to premium mobile banking',
-      icon: <FaMobileAlt />,
-      color: 'from-purple-500 to-purple-700'
-    },
-    {
-      marathi: 'QR कोड बँकिंग',
-      english: 'QR Code Banking',
-      description: 'Secure QR-based payments and transactions',
-      icon: <FaQrcode />,
-      color: 'from-teal-500 to-teal-700'
-    },
-    {
-      marathi: 'प्राधान्यक्रम सेवा',
-      english: 'Priority Service',
-      description: 'Dedicated relationship manager and priority support',
-      icon: <FaHeadset />,
-      color: 'from-rose-500 to-rose-700'
-    }
-  ];
-
-  // Additional Premium Benefits
-  const additionalBenefits = [
-    { title: 'Premium Support', icon: <FaUserTie />, desc: '24/7 dedicated relationship manager' },
-    { title: 'E-Statements', icon: <FaEnvelope />, desc: 'Monthly comprehensive statements' },
-    { title: 'Nomination', icon: <FaUsers />, desc: 'Multiple nomination facility' },
-    { title: 'Instant Alerts', icon: <FaBell />, desc: 'Real-time SMS & email alerts' },
-    { title: 'Enhanced Security', icon: <FaLock />, desc: 'Advanced fraud protection' },
-    { title: 'Global Access', icon: <FaGlobe />, desc: 'Worldwide ATM access' }
-  ];
-
-  // Eligibility Criteria
-  const eligibilityCriteria = [
-    { requirement: 'Resident Individual', status: true },
-    { requirement: 'Minimum Age: 21 years', status: true },
-    { requirement: 'Minimum Balance: ₹50,000', status: true },
-    { requirement: 'Annual Income: ₹6 Lakhs+', status: true },
-    { requirement: 'Existing Bank Customer', status: false }
-  ];
-
-  // Required Documents
-  const requiredDocuments = [
-    { document: 'Aadhaar Card', mandatory: true },
-    { document: 'PAN Card', mandatory: true },
-    { document: 'Address Proof', mandatory: true },
-    { document: 'Income Proof (Salary Slip/ITR)', mandatory: true },
-    { document: 'Passport Photos', mandatory: true },
-    { document: 'Signature Specimen', mandatory: true }
-  ];
-
-  // Premium Charges
-  const premiumCharges = [
-    { service: 'Account Maintenance', charge: '₹999', period: 'Annual' },
-    { service: 'ATM Transactions', charge: 'Free', period: 'Unlimited' },
-    { service: 'Fund Transfers', charge: 'Free', period: 'All Channels' },
-    { service: 'Cheque Book', charge: 'Free', period: 'Annual' },
-    { service: 'SMS Alerts', charge: 'Free', period: 'Lifetime' }
-  ];
-
-  // FAQ Items
-  const faqItems = [
-    {
-      question: 'What makes Premium Savings Account different?',
-      answer: 'Premium account offers higher interest rates, priority services, dedicated relationship manager, enhanced transaction limits, and exclusive banking privileges.'
-    },
-    {
-      question: 'What is the minimum balance requirement?',
-      answer: 'Minimum quarterly average balance requirement is ₹50,000. Non-maintenance charges apply if balance falls below this.'
-    },
-    {
-      question: 'Can I convert my regular account to premium?',
-      answer: 'Yes, existing customers can upgrade by maintaining the required balance and submitting an upgrade request.'
-    },
-    {
-      question: 'Are there any hidden charges?',
-      answer: 'No hidden charges. All fees are transparently communicated upfront. Annual maintenance fee of ₹999 applies.'
-    }
-  ];
-
-  // Handle scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
-
   return (
     <div className="font-sans bg-gradient-to-b from-gray-50 to-white">
       {/* 1. Premium Hero Banner */}
@@ -283,12 +157,12 @@ const Premiumsavingsacco = () => {
 
             {/* Breadcrumb */}
             <nav className="flex items-center text-gray-300 text-sm mb-8">
-              <a href="/" className="flex items-center hover:text-white transition-colors">
+              <button className="flex items-center hover:text-white transition-colors">
                 <FaHome className="mr-2" />
                 {t.home}
-              </a>
+              </button>
               <FaChevronRight className="mx-2 opacity-50" />
-              <a href="/account" className="hover:text-white transition-colors">{t.account}</a>
+              <button className="hover:text-white transition-colors">{t.account}</button>
               <FaChevronRight className="mx-2 opacity-50" />
               <span className="font-semibold text-white">{t.premiumSavingsAccount}</span>
             </nav>
@@ -380,30 +254,30 @@ const Premiumsavingsacco = () => {
                 {t.premiumServicesTitle}
               </h3>
               <div className="space-y-3">
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mr-4">
                     <FaChartLine className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.wealthManagement}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center mr-4">
                     <FaHandHoldingUsd className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.premiumLoans}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-4">
                     <FaUniversity className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.priorityFDs}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-500 flex items-center justify-center mr-4">
                     <FaCreditCard className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.premiumCards}</span>
-                </a>
+                </button>
               </div>
             </div>
 

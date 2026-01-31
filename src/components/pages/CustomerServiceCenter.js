@@ -6,7 +6,7 @@ import {
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const CustomerServiceCenter = () => {
-  const { language, changeLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('English');

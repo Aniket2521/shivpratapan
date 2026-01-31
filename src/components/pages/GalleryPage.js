@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  FaHome, FaChevronRight, FaCamera, FaCalendarAlt, 
-  FaBuilding, FaUsers, FaNewspaper, FaImages,
+  FaHome, FaChevronRight, FaCamera, 
+  FaImages,
   FaTimes, FaChevronLeft, FaChevronRight as FaChevronRightIcon,
-  FaStar, FaHeart, FaDownload, FaShareAlt, FaExpand,
-  FaMapMarkerAlt, FaEye
+  FaExpand
 } from 'react-icons/fa';
-import { GiPartyPopper, GiTrophy } from 'react-icons/gi';
 import { 
   database, 
   ref as dbRef, 
@@ -20,7 +18,6 @@ const GalleryPage = () => {
   const [showLightbox, setShowLightbox] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [galleryImages, setGalleryImages] = useState([]);
-  const [loading, setLoading] = useState(true);
   const { language } = useLanguage();
 
   // Translations for Gallery content
@@ -69,7 +66,6 @@ const GalleryPage = () => {
 
   const loadGalleryImages = async () => {
     try {
-      setLoading(true);
       const galleryRef = dbRef(database, 'shivpratapmultistate/gallery');
       const snapshot = await get(galleryRef);
       
@@ -83,8 +79,6 @@ const GalleryPage = () => {
       }
     } catch (error) {
       console.error('Error loading gallery images:', error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -125,7 +119,7 @@ const GalleryPage = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [showLightbox, currentImageIndex, filteredImages]);
+  }, [showLightbox, nextImage, prevImage]);
 
   return (
     <div className="font-sans bg-gradient-to-b from-gray-50 to-white min-h-screen">

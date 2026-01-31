@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   FaHome, FaChevronRight, FaMapMarkerAlt, FaPhoneAlt,
-  FaEnvelope, FaClock, FaSearch, FaFilter, FaDirections,
-  FaBuilding, FaCity, FaMoneyBillWave, FaCreditCard, FaHandHoldingUsd,
-  FaUniversity, FaLock, FaTimes, FaStar
+  FaSearch, FaDirections,
+  FaBuilding, FaCity, FaTimes, FaStar
 } from 'react-icons/fa';
 import { GiBank } from 'react-icons/gi';
 import { useLanguage } from '../../contexts/LanguageContext';
