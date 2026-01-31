@@ -18,18 +18,28 @@ export const LanguageProvider = ({ children }) => {
 
   // Extract language from URL on mount and location change
   useEffect(() => {
-    const pathParts = location.pathname.split('/');
-    const langInUrl = pathParts[pathParts.length - 1];
+    const pathParts = location.pathname.split('/').filter(part => part); // Remove empty strings
+    const lastPart = pathParts[pathParts.length - 1];
     
-    if (langInUrl === 'en' || langInUrl === 'mr') {
-      setLanguage(langInUrl);
+    // Check if the last part is a valid language code
+    if (lastPart === 'en' || lastPart === 'mr') {
+      setLanguage(lastPart);
+    } else if (location.pathname === '/') {
+      // Default to English for root path
+      setLanguage('en');
     }
   }, [location.pathname]);
 
   const changeLanguage = (newLang) => {
     setLanguage(newLang);
     
-    // Update URL with language parameter
+    // Handle home page specially
+    if (location.pathname === '/' || location.pathname === `/${language}`) {
+      navigate(`/${newLang}`);
+      return;
+    }
+    
+    // Update URL with language parameter for other pages
     const pathParts = location.pathname.split('/');
     const lastPart = pathParts[pathParts.length - 1];
     

@@ -39,7 +39,7 @@ const Plan = () => {
       whyChooseDeposits: 'Why Choose Our Deposit Schemes?',
       needHelp: 'Need Help Choosing the Right Scheme?',
       needHelpDesc: 'Our financial advisors are here to help you select the perfect scheme based on your goals and requirements.',
-      callNow: 'Call Now: 1800-123-4567',
+      callNow: 'Call Now: 9582837032',
       visitBranch: 'Visit Nearest Branch',
       // Deposit Schemes
       pensionTitle: 'Pension Deposit Scheme',
@@ -104,7 +104,7 @@ const Plan = () => {
       whyChooseDeposits: 'आमच्या ठेव योजना का निवडाव्यात?',
       needHelp: 'योग्य योजना निवडण्यात मदत हवी का?',
       needHelpDesc: 'आपल्या लक्ष्यांनुसार आणि आवश्यकतांनुसार योग्य योजना निवडण्यासाठी आमले आर्थिक सल्लागार येथे आहेत.',
-      callNow: 'आता कॉल करा: 1800-123-4567',
+      callNow: 'आता कॉल करा: 9582837032',
       visitBranch: 'जवळची शाखा भेट द्या',
       // Deposit Schemes
       pensionTitle: 'पेन्शन ठेव योजना',
