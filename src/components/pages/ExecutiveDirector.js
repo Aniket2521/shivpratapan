@@ -21,7 +21,6 @@ import executiveDirectorImage from '../Assets/Executive Directors.jpeg';
 
 const ExecutiveDirector = () => {
   const { language } = useLanguage();
-  const isMarathi = language === 'mr';
   const [isModalOpen, setIsModalOpen] = useState(false);
   const primaryColor = '#b03462';
 

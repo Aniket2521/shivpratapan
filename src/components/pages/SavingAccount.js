@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaHome, FaArrowRight, FaFileAlt, 
+  FaHome, FaArrowRight, 
   FaShieldAlt, FaCheckCircle,
-  FaPhoneAlt, FaMapMarkedAlt, FaDownload,
-  FaHandHoldingUsd, FaCalendarAlt, FaLock,
+  FaPhoneAlt, FaMapMarkedAlt,
+  FaHandHoldingUsd,
   FaChevronRight, FaInfoCircle, FaUniversity,
   FaMobileAlt, FaRupeeSign
 } from 'react-icons/fa';
 
 const SavingAccount = () => {
   const { language } = useLanguage();
-  const isMarathi = language === 'mr';
-  const [activeSection, setActiveSection] = useState('about');
 
   // Translations
   const translations = {
@@ -131,7 +129,6 @@ const SavingAccount = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
     }
   };
 
@@ -153,12 +150,20 @@ const SavingAccount = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
             <nav className="flex items-center text-white text-sm mb-6">
-              <a href="/" className="flex items-center hover:text-blue-200 transition-colors">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="flex items-center hover:text-blue-200 transition-colors"
+              >
                 <FaHome className="mr-2" />
                 {t.home}
-              </a>
+              </button>
               <FaChevronRight className="mx-2 opacity-50" />
-              <a href="/account" className="hover:text-blue-200 transition-colors">{t.account}</a>
+              <button 
+                onClick={() => scrollToSection('account')}
+                className="hover:text-blue-200 transition-colors"
+              >
+                {t.account}
+              </button>
               <FaChevronRight className="mx-2 opacity-50" />
               <span className="font-semibold">{t.savingsAccount}</span>
             </nav>
@@ -310,22 +315,22 @@ const SavingAccount = () => {
             <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 border border-gray-100">
               <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">{t.quickLinks}</h3>
               <div className="space-y-2 sm:space-y-3">
-                <a href="#" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <button className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors w-full text-left">
                   <FaRupeeSign className="text-blue-600 mr-3 text-sm sm:text-base" />
                   <span className="text-sm sm:text-base">{t.currentAccount}</span>
-                </a>
-                <a href="#" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                </button>
+                <button className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors w-full text-left">
                   <FaHandHoldingUsd className="text-green-600 mr-3 text-sm sm:text-base" />
                   <span className="text-sm sm:text-base">{t.loanProducts}</span>
-                </a>
-                <a href="#" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                </button>
+                <button className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors w-full text-left">
                   <FaUniversity className="text-purple-600 mr-3 text-sm sm:text-base" />
                   <span className="text-sm sm:text-base">{t.fixedDeposits}</span>
-                </a>
-                <a href="#" className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                </button>
+                <button className="flex items-center p-3 rounded-lg hover:bg-gray-50 transition-colors w-full text-left">
                   <FaMobileAlt className="text-red-600 mr-3 text-sm sm:text-base" />
                   <span className="text-sm sm:text-base">{t.mobileBanking}</span>
-                </a>
+                </button>
               </div>
             </div>
 

@@ -4,7 +4,6 @@ import '../Assets/sanchalak.jpeg'
 
 const ManagingDirector = () => {
   const { language } = useLanguage();
-  const isMarathi = language === 'mr';
   const [isModalOpen, setIsModalOpen] = useState(false)
   const primaryColor = '#b03462'
   const secondaryColor = '#f8f9fa'

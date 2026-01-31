@@ -21,13 +21,8 @@
 
 // export { auth, database, signInWithEmailAndPassword, createUserWithEmailAndPassword, ref, set, get, child };
 
-
-
-
-
 // firebase.js
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -70,7 +65,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Services
-const analytics = getAnalytics(app);
 const auth     = getAuth(app);
 const database = getDatabase(app);
 const storage  = getStorage(app);

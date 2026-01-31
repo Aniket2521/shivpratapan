@@ -253,35 +253,6 @@ const Currentaccount = () => {
     { type: 'Cheque Payment', limit: 'No Limit', period: 'As per balance' }
   ];
 
-  // FAQ Items
-  const faqItems = [
-    {
-      question: 'What is the minimum balance required?',
-      answer: 'The minimum quarterly average balance required is ₹10,000. Non-maintenance charges of ₹500 + GST apply.'
-    },
-    {
-      question: 'Can I open a current account online?',
-      answer: 'Yes, you can start the application online and complete documentation at the branch. Video KYC is available for eligible businesses.'
-    },
-    {
-      question: 'What are the transaction charges?',
-      answer: 'Cash deposit charges are ₹5 per ₹1,000 for other bank deposits. NEFT transactions are free up to ₹10 lakhs daily.'
-    },
-    {
-      question: 'How long does account opening take?',
-      answer: 'With complete documentation, account opening is typically completed within 24-48 hours.'
-    }
-  ];
-
-  // Handle scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setActiveSection(sectionId);
-    }
-  };
-
   return (
     <div className="font-sans bg-gradient-to-b from-gray-50 to-white">
       {/* 1. Professional Hero Banner */}
@@ -417,30 +388,30 @@ const Currentaccount = () => {
                 {t.businessServices}
               </h3>
               <div className="space-y-3">
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mr-4">
                     <FaHandHoldingUsd className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.businessLoans}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mr-4">
                     <FaUniversity className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.termDeposits}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-500 flex items-center justify-center mr-4">
                     <FaTruck className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.tradeFinance}</span>
-                </a>
-                <a href="#" className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100">
+                </button>
+                <button className="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors border border-gray-100 w-full text-left">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center mr-4">
                     <FaStore className="text-white" />
                   </div>
                   <span className="font-medium text-gray-800">{t.merchantServices}</span>
-                </a>
+                </button>
               </div>
             </div>
 

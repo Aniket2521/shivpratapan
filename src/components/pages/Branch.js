@@ -3,9 +3,7 @@ import {
   FaHome, FaChevronRight, FaMapMarkerAlt, FaPhoneAlt,
   FaEnvelope, FaClock, FaSearch, FaFilter, FaDirections,
   FaBuilding, FaCity, FaMoneyBillWave, FaCreditCard, FaHandHoldingUsd,
-  FaUniversity, FaLock, FaArrowRight, FaTimes, FaStar,
-  FaGlobe, FaFacebook, FaInstagram, FaTwitter, FaCalendarAlt,
-  FaUsers, FaShieldAlt, FaCar, FaBus, FaParking
+  FaUniversity, FaLock, FaTimes, FaStar
 } from 'react-icons/fa';
 import { GiBank } from 'react-icons/gi';
 import { useLanguage } from '../../contexts/LanguageContext';

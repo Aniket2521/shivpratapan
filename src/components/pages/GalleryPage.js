@@ -4,7 +4,7 @@ import {
   FaBuilding, FaUsers, FaNewspaper, FaImages,
   FaTimes, FaChevronLeft, FaChevronRight as FaChevronRightIcon,
   FaStar, FaHeart, FaDownload, FaShareAlt, FaExpand,
-  FaMapMarkerAlt, FaEye, FaPlayCircle
+  FaMapMarkerAlt, FaEye
 } from 'react-icons/fa';
 import { GiPartyPopper, GiTrophy } from 'react-icons/gi';
 import { 
@@ -126,29 +126,6 @@ const GalleryPage = () => {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [showLightbox, currentImageIndex, filteredImages]);
-
-  const getCategoryColor = (category) => {
-    const colors = {
-      events: 'bg-blue-100 text-blue-700',
-      branches: 'bg-green-100 text-green-700',
-      inauguration: 'bg-purple-100 text-purple-700',
-      'customer-programs': 'bg-amber-100 text-amber-700',
-      'media-coverage': 'bg-red-100 text-red-700',
-      default: 'bg-gray-100 text-gray-700'
-    };
-    return colors[category] || colors.default;
-  };
-
-  const getEventIcon = (event) => {
-    const icons = {
-      anniversary: <GiPartyPopper />,
-      'new-branch': <FaBuilding />,
-      'customer-meet': <FaUsers />,
-      festival: <FaCalendarAlt />,
-      award: <GiTrophy />
-    };
-    return icons[event] || <FaCamera />;
-  };
 
   return (
     <div className="font-sans bg-gradient-to-b from-gray-50 to-white min-h-screen">

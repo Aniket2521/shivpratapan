@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaPiggyBank, FaUserFriends, FaCoins, FaHeart,
-  FaChartLine, FaHandHoldingUsd, FaShieldAlt,
-  FaCalendarAlt, FaRupeeSign, FaPercent, FaClock,
-  FaBuilding, FaHome, FaMobileAlt, FaDoorOpen,
-  FaArrowRight, FaCheckCircle, FaStar, FaUserTie,
-  FaGraduationCap, FaRing, FaMoneyBillWave,
-  FaCalculator, FaFileContract, FaHandshake, FaPhoneAlt
+  FaPiggyBank, FaCoins, FaChartLine, FaHandHoldingUsd, FaShieldAlt,
+  FaCalendarAlt, FaRupeeSign, FaPercent, FaBuilding, FaDoorOpen,
+  FaArrowRight, FaCheckCircle, FaStar, FaUserTie, FaRing,
+  FaMoneyBillWave, FaCalculator, FaFileContract, FaHandshake, FaPhoneAlt
 } from 'react-icons/fa';
 
 const Plan = () => {
@@ -159,7 +156,6 @@ const Plan = () => {
 
   // State for active category
   const [activeCategory, setActiveCategory] = useState('deposit');
-  const [selectedPlan, setSelectedPlan] = useState(null);
 
   // Handle hash navigation
   useEffect(() => {
@@ -552,7 +548,6 @@ const Plan = () => {
             <div 
               key={scheme.id}
               id={scheme.id}
-              onClick={() => setSelectedPlan(scheme)}
               className="bg-white rounded-2xl shadow-xl overflow-hidden border transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl cursor-pointer"
               style={{ borderColor: `${primaryColor}20` }}
             >

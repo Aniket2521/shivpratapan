@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
   FaHandHoldingUsd, FaUserCheck, FaShieldAlt, FaRupeeSign, 
   FaCalendarAlt, FaHeart, FaGraduationCap, FaCar, FaBusinessTime,
-  FaBuilding, FaPhoneAlt, FaFileAlt, FaUsers, FaStar,
+  FaBuilding, FaPhoneAlt, FaFileAlt, FaStar,
   FaCheckCircle, FaInfoCircle, FaChartLine, FaUniversity,
   FaIdCard, FaList, FaChevronDown, FaHome, FaChevronRight,
   FaRegMoneyBillAlt, FaRegChartBar, FaRegCreditCard, FaMapMarkerAlt,
@@ -19,7 +19,6 @@ const Loan = () => {
   const isMarathi = language === 'mr';
   const [activeLoan, setActiveLoan] = useState('personal-loan');
   const [showAllDocuments, setShowAllDocuments] = useState(false);
-  const [expandedLoan, setExpandedLoan] = useState(null);
 
   // Loan data with images - REPLACE WITH YOUR PROVIDED IMAGES
   const loanData = {
@@ -719,7 +718,6 @@ const Loan = () => {
       visitNearestBranch: 'Visit Nearest Branch',
       approvalTime: 'Approval Time',
       transparent: 'Transparent',
-      maxLoan: 'Max Loan',
       processingFee: 'Processing Fee',
       
       // Additional Labels
@@ -830,7 +828,6 @@ const Loan = () => {
       
       // Document section
       commonDocuments: 'Common Documents for All Loans',
-      mandatory: 'Mandatory',
       optional: 'Optional',
       aadhaarCard: 'Aadhaar Card',
       panCard: 'PAN Card',
@@ -981,16 +978,7 @@ const Loan = () => {
       moratoriumPeriod: 'अभ्यास कालावधीत अध्ययन कालावधी',
       taxBenefits: 'कलम ८०ई अंतर्गत कर कर फायदे',
       
-      // Section Headers
-      description: 'वर्णन',
-      features: 'वैशिष्ट्ये',
-      eligibility: 'पात्रता',
-      documents: 'दस्तऐवज',
-      benefits: 'फायदे',
-      disadvantages: 'तोटे',
-      interestRate: 'व्याज दर',
-      loanAmount: 'कर्ज रक्कम',
-      tenure: 'कालावधी',
+      // Section Headers (already defined above)
       
       goldLoanTypes: 'गोल्ड लोन प्रकार',
       vehicleTypes: 'वाहन प्रकार',
@@ -1016,7 +1004,6 @@ const Loan = () => {
       visitNearestBranch: 'जवळच्या शाखेला भेट द्या',
       approvalTime: 'मंजूरी वेळ',
       transparent: 'पारदर्शक',
-      maxLoan: 'कमाल कर्ज',
       processingFee: 'प्रक्रिया शुल्क',
       
       // Additional Labels
@@ -1039,13 +1026,13 @@ const Loan = () => {
     { id: 'women-loan', label: t.womenLoan, marathi: t.womenLoan, icon: <FaHeart /> },
     { id: 'education-loan', label: t.educationLoan, marathi: t.educationLoan, icon: <FaGraduationCap /> }
   ];
-  const scrollToLoan = (loanId) => {
+  const scrollToLoan = useCallback((loanId) => {
     const element = document.getElementById(loanId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setActiveLoan(loanId);
     }
-  };
+  }, []);
 
   // Handle hash-based navigation
   useEffect(() => {
@@ -1054,7 +1041,7 @@ const Loan = () => {
       setActiveLoan(hash);
       setTimeout(() => scrollToLoan(hash), 100);
     }
-  }, [location.hash, loanData]);
+  }, [location.hash, loanData, scrollToLoan]);
 
 
   return (
@@ -1122,7 +1109,7 @@ const Loan = () => {
               <section 
                 key={navItem.id} 
                 id={navItem.id} 
-                className={`scroll-mt-20 sm:scroll-mt-24 lg:scroll-mt-28 mb-8 sm:mb-12 lg:mb-16 ${expandedLoan && expandedLoan !== navItem.id ? 'hidden lg:block' : ''}`}
+                className="scroll-mt-20 sm:scroll-mt-24 lg:scroll-mt-28 mb-8 sm:mb-12 lg:mb-16"
               >
                 <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl overflow-hidden border border-gray-200">
                   {/* Loan Header */}

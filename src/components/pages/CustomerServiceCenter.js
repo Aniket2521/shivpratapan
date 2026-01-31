@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   FaHome, FaChevronRight, FaHeadset, FaMapMarkerAlt,
-  FaBuilding, FaCity, FaSearch, FaDirections, FaTimes
+  FaSearch, FaDirections, FaTimes
 } from 'react-icons/fa';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -15,19 +15,6 @@ const CustomerServiceCenter = () => {
   useEffect(() => {
     setSelectedLanguage(language === 'en' ? 'English' : 'मराठी');
   }, [language]);
-
-  // Language options
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'mr', name: 'मराठी' }
-  ];
-
-  // Handle language change
-  const handleLanguageChange = (lang) => {
-    setSelectedLanguage(lang);
-    const langCode = lang === 'English' ? 'en' : 'mr';
-    changeLanguage(langCode);
-  };
 
   // Translations for customer service center page
   const translations = {

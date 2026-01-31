@@ -10,7 +10,7 @@ import {
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const Contact = () => {
-  const { language, changeLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     mobile: '',

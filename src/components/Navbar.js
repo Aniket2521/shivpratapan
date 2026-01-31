@@ -5,7 +5,7 @@ import {
   FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
   FaPhone, FaEnvelope, FaGlobe, FaMobileAlt, 
   FaCalculator, FaBars, FaTimes, FaChevronDown, 
-  FaChevronRight, FaMapMarkerAlt, FaBell
+  FaChevronRight, FaMapMarkerAlt
 } from 'react-icons/fa';
 import logo from '../components/Assets/SHIVPRATAP LOGO.png';
 
@@ -74,7 +74,6 @@ const Navbar = () => {
         { label: 'Annual Report', hasDropdown: false },
         { label: 'Contact', hasDropdown: false }
       ],
-      // ... rest remains same
       bankName: 'Shivpratap Multistate Bank',
       bankNameShort: 'Shivpratap Bank',
       trustedSince: 'Trusted Since 1985',
@@ -87,10 +86,10 @@ const Navbar = () => {
       language: 'Language:',
       needAssistance: 'Need assistance?',
       announcementsList: [
-        "🚀 New Digital Savings Account with 7% interest!",
+        " New Digital Savings Account with 7% interest!",
         " Enhanced security features implemented for safe banking",
-        "💼 Business Loan interest rates reduced by 0.5%",
-        "🏦 New branch opening in Pune next month"
+        " Business Loan interest rates reduced by 0.5%",
+        " New branch opening in Pune next month"
       ]
     },
     mr: {
@@ -116,7 +115,6 @@ const Navbar = () => {
         { label: 'वार्षिक अहवाल', hasDropdown: false },
         { label: 'संपर्क', hasDropdown: false }
       ],
-      // ... rest remains same
       bankName: 'शिवप्रताप मल्टीस्टेट बँक',
       bankNameShort: 'शिवप्रताप बँक',
       trustedSince: '१९८५ पासून विश्वासार्ह',
@@ -129,11 +127,11 @@ const Navbar = () => {
       language: 'भाषा:',
       needAssistance: 'मदतीची आवश्यकता आहे का?',
       announcementsList: [
-        "🚀 ७% व्याज दरासह नवीन डिजिटल बचत खाते!",
-        "📱 मोबाईल बँकिंग अॅप आता प्ले स्टोर आणि अॅप स्टोवर उपलब्ध",
-        "🔐 सुरक्षित बँकिंगसाठी सुधारित सुरक्षा वैशिष्ट्ये लागू केली",
-        "💼 व्यवसाय कर्जाचे व्याज दर ०.५% कमी केले",
-        "🏦 पुढील महिन्यात पुण्यात नवीन शाखा सुरू होणार"
+        " ७% व्याज दरासह नवीन डिजिटल बचत खाते!",
+        " मोबाईल बँकिंग अॅप आता प्ले स्टोर आणि अॅप स्टोवर उपलब्ध",
+        " सुरक्षित बँकिंगसाठी सुधारित सुरक्षा वैशिष्ट्ये लागू केली",
+        " व्यवसाय कर्जाचे व्याज दर ०.५% कमी केले",
+        " पुढील महिन्यात पुण्यात नवीन शाखा सुरू होणार"
       ]
     }
   };
@@ -143,7 +141,6 @@ const Navbar = () => {
 
   const getNavigationPath = (mainItem, dropdownItem, subItem = null) => {
     const pathMap = {
-      // English mappings
       'Organization': '/about',
       'Chairman': '/chairman',
       'Executive Directors': '/executive-director',
@@ -170,8 +167,6 @@ const Navbar = () => {
       'Annual Report': '/annual-report',
       'FAQ': '/faq',
       'Contact': '/contact',
-      
-      // Marathi mappings
       'संस्था': '/about',
       'अध्यक्ष': '/chairman',
       'व्यवस्थापकीय संचालक': '/executive-director',
@@ -198,8 +193,6 @@ const Navbar = () => {
       'वार्षिक अहवाल': '/annual-report',
       'वारंवार विचारले जाणारे प्रश्न': '/faq',
       'संपर्क': '/contact',
-      'FAQ': '/faq',
-      'Contact': '/contact',
       'सोन्याचे कर्ज प्रतिमा': '/loan#gold-loan',
       'वैयक्तिक कर्ज प्रतिमा': '/loan#personal-loan',
       'हायपोथेकेशन कर्ज प्रतिमा': '/loan#mortgage-loan',

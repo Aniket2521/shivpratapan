@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaHistory, FaTrophy, FaUsers, FaChartLine, FaShieldAlt, FaHandshake, FaBuilding, FaGraduationCap, FaHeart, FaStar, FaAward, FaRocket, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { FaHistory, FaTrophy, FaUsers, FaShieldAlt, FaHandshake, FaBuilding, FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const AboutUs = () => {
