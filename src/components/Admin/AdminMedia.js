@@ -2,14 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import {
   FiUpload,
-  FiVideo,
   FiTrash2,
   FiPlus,
   FiX,
   FiLoader,
   FiFile,
-  FiMusic,
-  FiImage
+  FiMusic
 } from 'react-icons/fi';
 
 import {
@@ -226,7 +224,7 @@ const AdminMedia = () => {
                   {previewUrls.map((url, i) => (
                     <div key={i} className="relative">
                       {url ? (
-                        <img src={url} className="h-24 w-full object-cover rounded" />
+                        <img src={url} className="h-24 w-full object-cover rounded" alt="Preview" />
                       ) : (
                         <div className="h-24 flex items-center justify-center bg-gray-100 rounded">
                           <FiMusic className="text-gray-400" />
@@ -270,7 +268,7 @@ const AdminMedia = () => {
                 {mediaFiles.map(media => (
                   <div key={media.id} className="relative group">
                     {media.type.startsWith('image/') ? (
-                      <img src={media.url} className="h-40 w-full object-cover rounded-lg" />
+                      <img src={media.url} className="h-40 w-full object-cover rounded-lg" alt={media.originalName} />
                     ) : media.type.startsWith('video/') ? (
                       <video src={media.url} controls className="h-40 w-full rounded-lg" />
                     ) : (

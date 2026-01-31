@@ -496,13 +496,13 @@ const AdminRegister = () => {
               <div className="text-center pt-4 border-t border-white/10">
                 <p className="text-white/50 text-sm">
                   By registering, you agree to our{' '}
-                  <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
+                  <button type="button" className="text-blue-400 hover:text-blue-300 transition-colors">
                     Terms of Service
-                  </a>{' '}
+                  </button>{' '}
                   and{' '}
-                  <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors">
+                  <button type="button" className="text-blue-400 hover:text-blue-300 transition-colors">
                     Privacy Policy
-                  </a>
+                  </button>
                 </p>
               </div>
             </form>

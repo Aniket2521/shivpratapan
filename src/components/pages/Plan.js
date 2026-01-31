@@ -842,28 +842,28 @@ const Plan = () => {
         }
 
         /* Card hover effects */
-        .hover\:-translate-y-4:hover {
+        .hover:-translate-y-4:hover {
           transform: translateY(-16px);
         }
 
-        .hover\:-translate-y-2:hover {
+        .hover:-translate-y-2:hover {
           transform: translateY(-8px);
         }
 
-        .hover\:-translate-y-1:hover {
+        .hover:-translate-y-1:hover {
           transform: translateY(-4px);
         }
 
         /* Shadow effects */
-        .hover\:shadow-2xl:hover {
+        .hover:shadow-2xl:hover {
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
-        .hover\:shadow-xl:hover {
+        .hover:shadow-xl:hover {
           box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .hover\:shadow-lg:hover {
+        .hover:shadow-lg:hover {
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
       `}</style>

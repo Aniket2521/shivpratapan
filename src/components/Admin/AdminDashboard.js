@@ -4,11 +4,9 @@ import AdminSidebar from './AdminSidebar';
 import { 
   database, 
   ref as dbRef, 
-  set, 
-  get,
-  push
+  get
 } from '../../firebase';
-import { FaImages, FaPhotoVideo, FaBullhorn, FaChartBar } from 'react-icons/fa';
+import { FaImages, FaPhotoVideo, FaBullhorn } from 'react-icons/fa';
 
 const AdminDashboard = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -63,39 +61,6 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   };
-
-  // Sample data for charts and stats
-  const statsData = {
-    totalUsers: 1250,
-    activeSessions: 42,
-    systemStatus: 'Online',
-    notifications: 7,
-    revenue: 85420,
-    growthRate: 12.5,
-    activeLoans: 289,
-    pendingRequests: 18
-  };
-
-  const recentActivities = [
-    { id: 1, user: 'John Doe', action: 'Applied for loan', time: '10 min ago', type: 'loan' },
-    { id: 2, user: 'Sarah Smith', action: 'Updated profile', time: '25 min ago', type: 'profile' },
-    { id: 3, user: 'Mike Johnson', action: 'Withdrew amount', time: '1 hour ago', type: 'transaction' },
-    { id: 4, user: 'Emma Wilson', action: 'Created new account', time: '2 hours ago', type: 'account' },
-    { id: 5, user: 'David Brown', action: 'Paid EMI', time: '3 hours ago', type: 'payment' }
-  ];
-
-  const quickActions = [
-    { label: 'Add New User', icon: '👤', color: 'bg-gradient-to-r from-blue-500 to-cyan-500' },
-    { label: 'Manage Loans', icon: '💰', color: 'bg-gradient-to-r from-green-500 to-emerald-500' },
-    { label: 'Generate Reports', icon: '📊', color: 'bg-gradient-to-r from-purple-500 to-pink-500' },
-    { label: 'System Settings', icon: '⚙️', color: 'bg-gradient-to-r from-orange-500 to-amber-500' },
-    { label: 'View Analytics', icon: '📈', color: 'bg-gradient-to-r from-indigo-500 to-blue-500' },
-    { label: 'Customer Support', icon: '💬', color: 'bg-gradient-to-r from-teal-500 to-green-500' }
-  ];
-
-  // Simulated chart data
-  const userGrowthData = [65, 75, 85, 95, 105, 115, 125, 135, 145, 155, 165, 175];
-  const revenueData = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
@@ -210,30 +175,29 @@ const AdminDashboard = () => {
       </div>
     </div>
   );
-
-  // Add CSS styles for marquee animation
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes scroll {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-    
-    .animate-scroll {
-      animation: scroll 25s linear infinite;
-    }
-  `;
-  
-  if (typeof document !== 'undefined') {
-    if (!document.getElementById('admin-marquee-styles')) {
-      style.id = 'admin-marquee-styles';
-      document.head.appendChild(style);
-    }
-  }
 };
+
+// Add CSS styles for marquee animation
+if (typeof document !== 'undefined') {
+  if (!document.getElementById('admin-marquee-styles')) {
+    const style = document.createElement('style');
+    style.id = 'admin-marquee-styles';
+    style.textContent = `
+      @keyframes scroll {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      
+      .animate-scroll {
+        animation: scroll 25s linear infinite;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
 
 export default AdminDashboard;

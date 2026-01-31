@@ -205,7 +205,7 @@ const AdminGallery = () => {
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 mt-5">
                   {previewUrls.map((url, i) => (
                     <div key={i} className="relative">
-                      <img src={url} className="h-24 w-full object-cover rounded" />
+                      <img src={url} alt={`Preview image ${i + 1}`} className="h-24 w-full object-cover rounded" />
                       <button
                         onClick={() => removePreview(i)}
                         className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1"
@@ -249,6 +249,7 @@ const AdminGallery = () => {
                   <div key={img.id} className="relative group">
                     <img
                       src={img.url}
+                      alt={`Gallery image ${img.id}`}
                       className="h-40 w-full object-cover rounded-lg"
                     />
                     <button

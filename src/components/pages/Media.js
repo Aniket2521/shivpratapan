@@ -4,19 +4,12 @@ import {
   FaChevronRight, 
   FaImages,
   FaCalendarAlt,
-  FaBuilding,
   FaUsers,
-  FaTrophy,
-  FaHandsHelping,
   FaFilter,
   FaTimes,
-  FaSearch,
   FaExpand,
   FaDownload,
-  FaHeart,
-  FaShare,
-  FaCaretDown,
-  FaSortAmountDown
+  FaHeart
 } from 'react-icons/fa';
 import { 
   database, 
@@ -30,8 +23,6 @@ const Media = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('latest');
-  const [showSortMenu, setShowSortMenu] = useState(false);
   const [favorites, setFavorites] = useState(new Set());
   const [mediaData, setMediaData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -151,11 +142,6 @@ const Media = () => {
         item.alt?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.category.toLowerCase().includes(searchTerm.toLowerCase());
       return matchesCategory && matchesSearch;
-    })
-    .sort((a, b) => {
-      if (sortBy === 'latest') return new Date(b.date) - new Date(a.date);
-      if (sortBy === 'oldest') return new Date(a.date) - new Date(b.date);
-      return 0;
     });
 
   const toggleFavorite = (id) => {

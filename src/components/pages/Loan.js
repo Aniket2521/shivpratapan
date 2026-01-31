@@ -2,21 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaHome, FaChevronRight, FaCalculator, FaPercent, 
-  FaCalendarAlt, FaHandHoldingUsd, FaUserCheck, 
-  FaShieldAlt, FaRupeeSign, FaClock, FaHeart,
-  FaGraduationCap, FaCar, FaBusinessTime, FaTractor,
-  FaBuilding, FaArrowRight, FaPhoneAlt, FaMapMarkerAlt,
-  FaDownload, FaFileAlt, FaTable, FaUsers, FaStar,
-  FaCheckCircle, FaInfoCircle, FaBalanceScale, FaGem,
-  FaPiggyBank, FaChartLine, FaUniversity, FaCogs,
-  FaMobileAlt, FaWallet, FaLeaf, FaBook,
-  FaIdCard, FaLandmark, FaFileContract, FaList,
-  FaChevronLeft, FaChevronDown, FaSearch,
-  FaRegFileAlt, FaRegChartBar, FaRegCreditCard,
-  FaRegMoneyBillAlt, FaRegCalendarCheck
+  FaHandHoldingUsd, FaUserCheck, FaShieldAlt, FaRupeeSign, 
+  FaCalendarAlt, FaHeart, FaGraduationCap, FaCar, FaBusinessTime,
+  FaBuilding, FaPhoneAlt, FaFileAlt, FaUsers, FaStar,
+  FaCheckCircle, FaInfoCircle, FaChartLine, FaUniversity,
+  FaIdCard, FaList, FaChevronDown, FaHome, FaChevronRight,
+  FaRegMoneyBillAlt, FaRegChartBar, FaRegCreditCard, FaMapMarkerAlt,
+  FaRegFileAlt, FaLandmark, FaFileContract
 } from 'react-icons/fa';
-import { GiReceiveMoney, GiPayMoney, GiMoneyStack, GiGoldBar, GiHouseKeys } from 'react-icons/gi';
+import { GiGoldBar, GiHouseKeys } from 'react-icons/gi';
 
 const Loan = () => {
   const { language } = useLanguage();
@@ -694,14 +688,12 @@ const Loan = () => {
       
       // Loan Details
       loanDetails: 'Loan Details',
-      maxTenure: 'Max Tenure',
       
       // Credit Score
       creditScoreInformation: 'Credit Score Information',
       idealCreditScore: 'Ideal Credit Score',
       
       // Types and Categories
-      typesOfMortgageLoans: 'Types of Mortgage Loans',
       goldLoanTypes: 'Gold Loan Types',
       vehicleTypes: 'Vehicle Types',
       purpose: 'Purpose',
@@ -1000,16 +992,6 @@ const Loan = () => {
       loanAmount: 'कर्ज रक्कम',
       tenure: 'कालावधी',
       
-      // Loan Details
-      loanDetails: 'कर्ज तपशील',
-      maxTenure: 'कमाल कालावधी',
-      
-      // Credit Score
-      creditScoreInformation: 'क्रेडिट स्कोअर माहिती',
-      idealCreditScore: 'आदर्श क्रेडिट स्कोअर',
-      
-      // Types and Categories
-      typesOfMortgageLoans: 'तारण कर्ज प्रकार',
       goldLoanTypes: 'गोल्ड लोन प्रकार',
       vehicleTypes: 'वाहन प्रकार',
       purpose: 'उद्देश',
@@ -1072,19 +1054,8 @@ const Loan = () => {
       setActiveLoan(hash);
       setTimeout(() => scrollToLoan(hash), 100);
     }
-  }, [location.hash]);
+  }, [location.hash, loanData]);
 
-  // Toggle loan expansion
-  const toggleLoanExpansion = (loanId) => {
-    if (expandedLoan === loanId) {
-      setExpandedLoan(null);
-    } else {
-      setExpandedLoan(loanId);
-      scrollToLoan(loanId);
-    }
-  };
-
-  const currentLoan = loanData[activeLoan];
 
   return (
     <div className="font-sans bg-gradient-to-b from-gray-50 to-white min-h-screen">

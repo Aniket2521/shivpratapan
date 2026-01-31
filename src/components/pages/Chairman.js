@@ -5,7 +5,6 @@ import chairmanImage from '../Assets/chairman.jpeg';
 
 const Chairman = () => {
   const { language } = useLanguage();
-  const isMarathi = language === 'mr';
   const [isModalOpen, setIsModalOpen] = useState(false);
   const primaryColor = '#b03462';
 

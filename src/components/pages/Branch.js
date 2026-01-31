@@ -5,9 +5,7 @@ import {
   FaBuilding, FaCity, FaMoneyBillWave, FaCreditCard, FaHandHoldingUsd,
   FaUniversity, FaLock, FaArrowRight, FaTimes, FaStar,
   FaGlobe, FaFacebook, FaInstagram, FaTwitter, FaCalendarAlt,
-  FaUsers, FaShieldAlt, FaCar, FaBus, FaParking,
-  FaWheelchair, FaWifi, FaCoffee, FaPrint, FaQrcode, FaCheckCircle,
-  FaChevronDown
+  FaUsers, FaShieldAlt, FaCar, FaBus, FaParking
 } from 'react-icons/fa';
 import { GiBank } from 'react-icons/gi';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -21,7 +19,6 @@ const Branch = () => {
 
   // Use language from context directly
   const currentLang = language;
-  const selectedLanguage = language === 'en' ? 'English' : 'मराठी';
 
   // Translations for branch page content
   const translations = {
@@ -580,14 +577,6 @@ const Branch = () => {
     groups[branch.city].push(branch);
     return groups;
   }, {});
-
-  // All services available
-  const allServices = [
-    'Savings Account', 'Current Account', 'Fixed Deposit', 'Recurring Deposit',
-    'Personal Loan', 'Home Loan', 'Education Loan', 'Vehicle Loan', 'Gold Loan',
-    'Business Loan', 'Agriculture Loan', 'NRI Services', 'Insurance', 'Mutual Funds',
-    'Credit Cards', 'Debit Cards', 'Internet Banking', 'Mobile Banking', 'Lockers'
-  ];
 
   // Handle branch selection
   const handleBranchSelect = (branch) => {

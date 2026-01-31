@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
-  FiHome, FiImage, FiVideo, FiLogOut, 
+  FiImage, FiVideo, FiLogOut, 
   FiMenu, FiX, FiChevronRight, FiGrid,
   FiEdit3
 } from 'react-icons/fi';
-import { FaPhotoVideo, FaImages } from 'react-icons/fa';
 import { 
   database, 
   ref as dbRef, 

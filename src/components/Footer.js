@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { 
   FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
   FaPhone, FaEnvelope, FaBuilding, FaUserCircle,
-  FaSignInAlt, FaGlobe, FaChevronDown
+  FaSignInAlt
 } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../contexts/LanguageContext'
@@ -10,19 +10,13 @@ import logo from '../components/Assets/SHIVPRATAP LOGO.png'
 
 const Footer = () => {
   const navigate = useNavigate()
-  const { language, changeLanguage } = useLanguage()
+  const { language } = useLanguage()
   const [selectedLanguage, setSelectedLanguage] = useState('English')
 
   // Sync selectedLanguage with context language
   useEffect(() => {
     setSelectedLanguage(language === 'en' ? 'English' : 'मराठी')
   }, [language])
-
-  // Language options
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'mr', name: 'मराठी' }
-  ]
 
   // Translations for footer content
   const translations = {
@@ -119,13 +113,6 @@ const Footer = () => {
   // Get current language content
   const currentLang = selectedLanguage === 'English' ? 'en' : 'mr'
   const currentContent = translations[currentLang]
-
-  // Handle language change
-  const handleLanguageChange = (lang) => {
-    setSelectedLanguage(lang)
-    const langCode = lang === 'English' ? 'en' : 'mr'
-    changeLanguage(langCode)
-  }
 
   // Social media links with actual URLs
   const socialLinks = [

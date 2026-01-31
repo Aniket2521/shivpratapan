@@ -6,14 +6,9 @@ import {
   FaEye, 
   FaCalendarAlt, 
   FaBookOpen,
-  FaFileAlt,
   FaFileDownload,
-  FaExternalLinkSquareAlt,
-  FaPrint,
-  FaHome,
-  FaArrowLeft
+  FaPrint
 } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import annualReportPDF from '../Assets/Annual Report 2024-25.pdf';
 import shivpratapLogo from '../Assets/SHIVPRATAP LOGO.png';
 
@@ -23,7 +18,6 @@ const PDF_PATH = annualReportPDF;
 const AnnualReport = () => {
   const { language } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
 
   // Translations
   const translations = {

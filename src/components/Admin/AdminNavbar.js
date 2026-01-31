@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FiUser, FiSettings, FiLogOut } from 'react-icons/fi';
-import { FaCrown, FaShieldAlt } from 'react-icons/fa';
+import { FiUser, FiLogOut } from 'react-icons/fi';
+import { FaCrown } from 'react-icons/fa';
 
 const AdminNavbar = ({ toggleSidebar, sidebarCollapsed }) => {
   const navigate = useNavigate();

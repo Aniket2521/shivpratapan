@@ -3,9 +3,8 @@ import {
   FaHome, FaChevronRight, FaPhoneAlt, FaEnvelope, 
   FaMapMarkerAlt, FaClock, FaBuilding, FaUser,
   FaMobileAlt, FaRegEnvelope, FaRegComments, 
-  FaPaperPlane, FaFacebook, FaTwitter, FaLinkedin, 
-  FaInstagram, FaYoutube, FaTimes, FaCheckCircle, 
-  FaGlobe, 
+  FaPaperPlane, FaFacebook, 
+  FaInstagram, FaYoutube, FaCheckCircle, 
   FaArrowRight
 } from 'react-icons/fa';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -35,19 +34,12 @@ const Contact = () => {
   // Color constants
   const primaryColor = '#b03462';
   const secondaryColor = '#f8f9fa';
-  const accentColor = '#ffd166';
   const darkColor = '#1a1a2e';
 
   // Sync selectedLanguage with context language
   useEffect(() => {
     setSelectedLanguage(language === 'en' ? 'English' : 'मराठी');
   }, [language]);
-
-  // Language options
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'mr', name: 'मराठी' }
-  ];
 
   // Translations for contact page
   const translations = {
@@ -190,13 +182,6 @@ const Contact = () => {
   // Get current language content
   const currentLang = selectedLanguage === 'English' ? 'en' : 'mr';
   const currentContent = translations[currentLang];
-
-  // Handle language change
-  const handleLanguageChange = (lang) => {
-    setSelectedLanguage(lang);
-    const langCode = lang === 'English' ? 'en' : 'mr';
-    changeLanguage(langCode);
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

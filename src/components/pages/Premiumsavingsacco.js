@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaCrown, FaGem, FaStar, FaShieldAlt, FaPhoneAlt,
-  FaEnvelope, FaMapMarkerAlt, FaDownload, FaFileAlt,
-  FaUserCheck, FaIdCard, FaPercent, FaCalculator,
-  FaMobileAlt, FaQrcode, FaExchangeAlt, FaWallet,
+  FaCrown, FaStar, FaShieldAlt,
+  FaEnvelope, FaMapMarkerAlt,
+  FaMobileAlt, FaQrcode, FaExchangeAlt,
   FaCreditCard, FaBell, FaLock, FaUserTie,
   FaHandHoldingUsd, FaChevronRight, FaHome,
   FaArrowRight, FaCheckCircle, FaClock,

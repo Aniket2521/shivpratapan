@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -13,7 +12,7 @@ import {
   FaArrowRight, FaPlayCircle, FaPlus, FaTimes,
   FaStar, FaAward, FaUserCheck, FaLightbulb,
   FaCreditCard, FaHandHoldingHeart, FaUniversity, FaComment,
-  FaSearch, FaDownload, FaShareAlt, FaFilter,
+  FaFilter,
   FaPiggyBank as FaPiggyBankSolid, FaUser, FaRing
 } from 'react-icons/fa';
 import { 
@@ -34,7 +33,6 @@ import slider7 from '../Assets/slider7.jpg';
 import slider8 from '../Assets/slider8.jpg';
 import slider9 from '../Assets/slider9.jpg';
 import slider10 from '../Assets/slider10.jpg';
-import goldBanner from '../Assets/gold_banner.webp';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -45,7 +43,6 @@ const Home = () => {
   const secondaryColor = '#ffd166';
   const accentColor = '#06d6a0';
   const darkColor = '#1a1a2e';
-  const lightColor = '#f8f9fa';
 
   // Translations
   const translations = {
@@ -297,7 +294,6 @@ const Home = () => {
     }
   };
 
-  const isMarathi = language === 'mr';
   const t = translations[language];
 
   // State management
@@ -316,13 +312,6 @@ const Home = () => {
   const [galleryLoading, setGalleryLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
   const [showPopup, setShowPopup] = useState(true); // Popup state - starts as true to show on page load
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [counters, setCounters] = useState({
-    branches: 23,
-    accounts: 500000,
-    days: 0,
-    satisfied: 0
-  });
 
 
     // const [currentSlide, setCurrentSlide] = useState(0);
@@ -546,15 +535,7 @@ const Home = () => {
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Auto-advance slider
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -568,7 +549,7 @@ const Home = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [nextSlide, prevSlide]);
 
   // Handle Counter Animation
   useEffect(() => {
@@ -664,7 +645,7 @@ const Home = () => {
   // Load gold price on component mount
   useEffect(() => {
     fetchCurrentGoldPrice();
-  }, []);
+  }, [fetchCurrentGoldPrice]);
 
   // Handle Gold Loan Calculation
   const calculateGoldLoan = () => {
