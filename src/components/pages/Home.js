@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaFacebook, FaInstagram, FaTwitter, FaYoutube, 
-  FaPhone, FaEnvelope, 
+  FaFacebook, 
   FaCalculator, FaPiggyBank, FaHandHoldingUsd, FaChartLine,
   FaBuilding, FaUsers, FaShieldAlt,
   FaRupeeSign, FaPercent, FaCalendarAlt,
@@ -520,11 +519,11 @@ const Home = () => {
   // Slider control functions
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === sliderImages.length - 1 ? 0 : prev + 1));
-  }, []);
+  }, [sliderImages.length]);
 
   const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev === 0 ? sliderImages.length - 1 : prev - 1));
-  }, []);
+  }, [sliderImages.length]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);

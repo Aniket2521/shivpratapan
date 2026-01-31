@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   FaHome, FaChevronRight, FaCamera, 
   FaImages,
@@ -98,17 +98,17 @@ const GalleryPage = () => {
     setShowLightbox(true);
   };
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     const nextIndex = (currentImageIndex + 1) % filteredImages.length;
     setSelectedImage(filteredImages[nextIndex]);
     setCurrentImageIndex(nextIndex);
-  };
+  }, [currentImageIndex, filteredImages]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     const prevIndex = (currentImageIndex - 1 + filteredImages.length) % filteredImages.length;
     setSelectedImage(filteredImages[prevIndex]);
     setCurrentImageIndex(prevIndex);
-  };
+  }, [currentImageIndex, filteredImages]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {

@@ -1,25 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { 
-  FaBuilding, FaBriefcase, FaFileAlt, FaUserTie,
-  FaIdCard, FaPercent, FaCalculator, FaExchangeAlt,
-  FaWallet, FaCreditCard, FaBook, FaShieldAlt,
-  FaChartLine, FaHandshake, FaRupeeSign, FaCheckCircle,
-  FaArrowRight, FaHome, FaChevronRight, FaPhoneAlt,
-  FaMapMarkerAlt, FaDownload, FaUsers, FaIndustry,
+  FaBuilding, FaBriefcase, FaExchangeAlt,
+  FaHome, FaChevronRight,
+  FaMapMarkerAlt, FaIndustry,
   FaStore, FaUniversity, FaHandHoldingUsd, FaTruck,
-  FaClipboardCheck, FaLock, FaGlobe, FaHeadset,
-  FaQrcode, FaMobileAlt, FaEnvelope, FaCalendarAlt,
-  FaBusinessTime, FaBalanceScale, FaInfoCircle, FaQuestionCircle
+  FaHeadset, FaEnvelope
 } from 'react-icons/fa';
-import { GiReceiveMoney, GiPayMoney, GiTakeMyMoney } from 'react-icons/gi';
 
 const Currentaccount = () => {
   const { language } = useLanguage();
   const isMarathi = language === 'mr';
-  const [activeSection, setActiveSection] = useState('overview');
-  const [showAllFeatures, setShowAllFeatures] = useState(false);
-  const [selectedBusinessType, setSelectedBusinessType] = useState('proprietor');
 
   // Translations
   const translations = {
